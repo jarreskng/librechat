@@ -13,7 +13,10 @@ services:
       - mongo
     volumes:
       - ./librechat.yaml:/app/librechat.yaml:ro
-      - ./data:/app/data
+      - /Users/jarreskng/Projects/LibreData/docs:/app/docs
+      - /Users/jarreskng/Projects/LibreData/data:/app/data
+
+
 
   mongo:
     image: mongo:6

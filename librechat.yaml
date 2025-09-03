@@ -56,4 +56,5 @@ mcpServers:
     args:
       - -y
       - "@modelcontextprotocol/server-filesystem"
+      - /app/docs
       - /app/data
