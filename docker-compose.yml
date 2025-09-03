@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  librechat:
+    image: ghcr.io/danny-avila/librechat-dev:latest
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    ports:
+      - "3080:3080"
+    depends_on:
+      - mongo
+    volumes:
+      - ./librechat.yaml:/app/librechat.yaml:ro
+      - ./data:/app/data
+
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
