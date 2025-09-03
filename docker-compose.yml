@@ -6,8 +6,9 @@ services:
     restart: unless-stopped
     env_file:
       - .env.local
+    # Привязка к localhost на ХОСТЕ (доступ только с этой машины)
     ports:
-      - "3080:3080"
+      - "127.0.0.1:3080:3080"
     depends_on:
       - mongo
     volumes:
