@@ -49,6 +49,7 @@ interface:
   parameters: true
   agents: true
 
+# MCP сервер с доступом к /app/data
 mcpServers:
   filesystem:
     type: stdio
@@ -56,5 +57,6 @@ mcpServers:
     args:
       - -y
       - "@modelcontextprotocol/server-filesystem"
-      - /app/docs
       - /app/data
+    serverInstructions: true
+    chatMenu: true
