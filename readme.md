@@ -26,7 +26,7 @@ LibreChat (UI)
 
 - Docker и Docker Compose
 - 8GB+ RAM (рекомендуется для Ollama)
-- OpenAI API ключ
+- OpenAI API ключ, ClaudeAI ключ
 
 ## Установка
 
@@ -43,8 +43,9 @@ cp .env.example .env
 
 # Отредактируйте .env и заполните:
 # - OPENAI_API_KEY (обязательно)
-# - NEXTAUTH_SECRET, SESSION_SECRET, JWT_SECRET (сгенерируйте случайные строки)
-# - DOCS_PATH и DATA_PATH (пути к вашим локальным папкам с документами)
+# - CLAUDE_API_KEY (обязательно)
+# - NEXTAUTH_SECRET, SESSION_SECRET, JWT_SECRET (случайные строки)
+# - DOCS_PATH и DATA_PATH (пути к локальным папкам с документами)
 # - При необходимости измените пароли для БД
 ```
 

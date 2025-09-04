@@ -15,34 +15,59 @@ endpoints:
       titleConvo: true
       titleModel: "current_model"
 
+    - name: "claude-custom"
+      apiKey: "${CLAUDE_API_KEY}"
+      baseURL: "https://api.anthropic.com/v1"
+      models:
+        default:
+          - "claude-3-7-sonnet-latest"
+        fetch: false
+      titleConvo: true
+      titleModel: "current_model"
+
 modelSpecs:
   enforce: false
   prioritize: true
   list:
     - name: "quick-assistant"
-      label: "Everyday Chat"
+      label: "Everyday (GPT-4o-mini)"
       default: true
       preset:
         endpoint: "openai-custom"
         model: "gpt-4o-mini"
         temperature: 0.7
         max_tokens: 2000
-    - name: "coding-assistant"
-      label: "Coding Assistant"
+        resendFiles: false
+
+    - name: "universal-assistant"
+      label: "Universal (GPT-4.1)"
       default: false
       preset:
         endpoint: "openai-custom"
         model: "gpt-4.1"
-        temperature: 0.3
+        temperature: 0.5
         max_tokens: 4000
-    - name: "proxmox-assistant"
-      label: "Proxmox Assistant"
+        resendFiles: false
+
+    - name: "coding-assistant-claude"
+      label: "Coding (Claude Sonnet)"
       default: false
       preset:
-        endpoint: "openai-custom"
-        model: "gpt-4.1"
+        endpoint: "claude-custom"
+        model: "claude-3-7-sonnet-latest"
         temperature: 0.2
         max_tokens: 6000
+        resendFiles: false
+
+    - name: "proxmox-assistant-claude"
+      label: "Proxmox (Claude Sonnet)"
+      default: false
+      preset:
+        endpoint: "claude-custom"
+        model: "claude-3-7-sonnet-latest"
+        temperature: 0.2
+        max_tokens: 6000
+        resendFiles: false
         systemMessage: |
           Ты — специализированный помощник по Proxmox VE для домашних серверов. У тебя есть доступ к технической документации через RAG систему.
           
@@ -91,7 +116,6 @@ interface:
   parameters: true
   agents: true
 
-# MCP сервер с доступом к /app/data
 mcpServers:
   filesystem:
     type: stdio
